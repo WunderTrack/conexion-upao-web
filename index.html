@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conexión UPAO | Inclusión y Accesibilidad</title>
+    <!-- Tailwind CSS para estilos rápidos y modernos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Iconos de Lucide para una interfaz limpia -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Fuente Inter para mejor legibilidad -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Color UPAO aproximado para acentos */
+        .bg-upao {
+            background-color: #FDB700; /* Amarillo institucional genérico */
+        }
+        .text-upao {
+            color: #D9A404;
+        }
+        
+        /* Animación suave para el mapa */
+        .map-marker {
+            transition: all 0.3s ease;
+        }
+        .map-marker:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+    <!-- Navegación -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="accessibility" class="h-8 w-8 text-yellow-600"></i>
+                    <span class="font-bold text-xl tracking-tight text-gray-900">Conexión UPAO</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="text-gray-600 hover:text-yellow-600 px-3 py-2 text-sm font-medium transition">Inicio</a>
+                    <a href="#mapa" class="text-gray-600 hover:text-yellow-600 px-3 py-2 text-sm font-medium transition">Mapa accesible</a>
+                    <a href="#comunidad" class="text-gray-600 hover:text-yellow-600 px-3 py-2 text-sm font-medium transition">Red de apoyo</a>
+                    <a href="#proyecto" class="text-gray-600 hover:text-yellow-600 px-3 py-2 text-sm font-medium transition">El proyecto</a>
+                </div>
+                <!-- Botón móvil -->
+                <button class="md:hidden p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100">
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div id="inicio" class="relative bg-gray-900 overflow-hidden">
+        <div class="absolute inset-0">
+            <img class="w-full h-full object-cover opacity-30" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Campus universitario">
+        </div>
+        <div class="relative max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+            <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl mb-6">
+                Un campus sin barreras
+            </h1>
+            <p class="mt-4 text-xl text-gray-300 max-w-3xl">
+                La plataforma que conecta a la comunidad de UPAO para garantizar la accesibilidad y el apoyo mutuo. Porque la inclusión es responsabilidad de todos.
+            </p>
+            <div class="mt-10 flex gap-4">
+                <a href="#mapa" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full transition shadow-lg flex items-center gap-2">
+                    <i data-lucide="map"></i> Ver mapa
+                </a>
+                <a href="#comunidad" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white font-semibold py-3 px-8 rounded-full transition flex items-center gap-2">
+                    <i data-lucide="users"></i> Unirse a la red
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Mapa Interactivo (Simulación) -->
+    <section id="mapa" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900">Mapa de accesibilidad</h2>
+                <p class="mt-4 text-lg text-gray-500">Encuentra rutas accesibles, rampas y elevadores en tiempo real.</p>
+            </div>
+
+            <div class="lg:grid lg:grid-cols-3 lg:gap-8">
+                <!-- Controles del Mapa -->
+                <div class="col-span-1 bg-gray-50 p-6 rounded-2xl shadow-sm border border-gray-100 h-fit">
+                    <h3 class="font-semibold text-lg mb-4 flex items-center gap-2">
+                        <i data-lucide="filter" class="w-5 h-5 text-gray-500"></i> Filtros
+                    </h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center space-x-3 p-3 bg-white rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 transition">
+                            <input type="checkbox" checked class="form-checkbox h-5 w-5 text-yellow-600 rounded">
+                            <span class="flex-1 text-gray-700">Rampas de acceso</span>
+                            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                        </label>
+                        <label class="flex items-center space-x-3 p-3 bg-white rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 transition">
+                            <input type="checkbox" checked class="form-checkbox h-5 w-5 text-yellow-600 rounded">
+                            <span class="flex-1 text-gray-700">Ascensores habilitados</span>
+                            <span class="w-3 h-3 rounded-full bg-blue-500"></span>
+                        </label>
+                        <label class="flex items-center space-x-3 p-3 bg-white rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 transition">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-yellow-600 rounded">
+                            <span class="flex-1 text-gray-700">Baños adaptados</span>
+                            <span class="w-3 h-3 rounded-full bg-purple-500"></span>
+                        </label>
+                        <label class="flex items-center space-x-3 p-3 bg-red-50 rounded-lg border border-red-100 cursor-pointer hover:bg-red-100 transition">
+                            <input type="checkbox" checked class="form-checkbox h-5 w-5 text-red-600 rounded">
+                            <span class="flex-1 text-red-700 font-medium">Reportar obstáculo</span>
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-red-500"></i>
+                        </label>
+                    </div>
+                    
+                    <div class="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-100">
+                        <p class="text-sm text-yellow-800">
+                            <strong>Nota:</strong> Este mapa se actualiza con la colaboración de los estudiantes voluntarios del grupo de Ética.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visualización del Mapa (Placeholder visual) -->
+                <div class="col-span-2 mt-8 lg:mt-0 bg-gray-200 rounded-2xl overflow-hidden relative h-96 lg:h-auto shadow-inner group">
+                    <!-- Imagen de fondo simulando mapa -->
+                    <div class="absolute inset-0 bg-gray-300 flex items-center justify-center">
+                        <span class="text-gray-400 font-medium text-lg">Vista del Campus UPAO (Mapa Interactivo)</span>
+                        <!-- Patrón de cuadrícula para simular mapa -->
+                        <div class="absolute inset-0" style="background-image: radial-gradient(#9ca3af 1px, transparent 1px); background-size: 20px 20px; opacity: 0.5;"></div>
+                    </div>
+
+                    <!-- Marcadores simulados -->
+                    <div class="absolute top-1/4 left-1/4 map-marker cursor-pointer group-hover:scale-110">
+                        <div class="bg-green-500 p-2 rounded-full shadow-lg text-white">
+                            <i data-lucide="move-diagonal" class="w-5 h-5"></i>
+                        </div>
+                        <div class="absolute mt-1 w-32 bg-white text-xs p-2 rounded shadow-lg -left-10 hidden group-hover:block z-10">
+                            Rampa Edificio E
+                        </div>
+                    </div>
+
+                    <div class="absolute top-1/2 left-1/2 map-marker cursor-pointer group-hover:scale-110">
+                        <div class="bg-blue-500 p-2 rounded-full shadow-lg text-white">
+                            <i data-lucide="arrow-up-circle" class="w-5 h-5"></i>
+                        </div>
+                        <div class="absolute mt-1 w-32 bg-white text-xs p-2 rounded shadow-lg -left-10 hidden group-hover:block z-10">
+                            Ascensor Biblioteca
+                        </div>
+                    </div>
+
+                    <div class="absolute bottom-1/3 right-1/4 map-marker cursor-pointer animate-pulse">
+                        <div class="bg-red-500 p-2 rounded-full shadow-lg text-white">
+                            <i data-lucide="alert-octagon" class="w-5 h-5"></i>
+                        </div>
+                        <div class="absolute mt-1 w-40 bg-white text-xs p-2 rounded shadow-lg -left-12 font-bold text-red-600 block z-10">
+                            Ascensor en mantenimiento
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Comunidad / Foro -->
+    <section id="comunidad" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-10">
+                <div>
+                    <h2 class="text-3xl font-extrabold text-gray-900">Comunidad y soporte</h2>
+                    <p class="mt-2 text-gray-600">Conecta con voluntarios o solicita asistencia para desplazarte.</p>
+                </div>
+                <button class="mt-4 md:mt-0 bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-medium transition flex items-center gap-2 shadow-lg">
+                    <i data-lucide="plus-circle"></i> Nueva publicación
+                </button>
+            </div>
+
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Post 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold">L</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Luis M.</h4>
+                                <span class="text-xs text-gray-500">Hace 10 min • Ing. Civil</span>
+                            </div>
+                        </div>
+                        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full font-medium">Ayuda requerida</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Hola, el ascensor del pabellón F está ocupado por mantenimiento. ¿Alguien sabe si hay otra ruta accesible para llegar al 3er piso?
+                    </p>
+                    <div class="flex items-center justify-between text-gray-400 text-sm border-t pt-4">
+                        <button class="flex items-center gap-1 hover:text-yellow-600"><i data-lucide="message-circle" class="w-4 h-4"></i> 3 respuestas</button>
+                        <button class="flex items-center gap-1 hover:text-red-500"><i data-lucide="heart" class="w-4 h-4"></i> Apoyar</button>
+                    </div>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold">A</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Ana R.</h4>
+                                <span class="text-xs text-gray-500">Hace 2 horas • Voluntaria</span>
+                            </div>
+                        </div>
+                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium">Información</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Ya se habilitó la rampa lateral de la cafetería central. Hemos actualizado el mapa para que aparezca como ruta verde.
+                    </p>
+                    <div class="flex items-center justify-between text-gray-400 text-sm border-t pt-4">
+                        <button class="flex items-center gap-1 hover:text-yellow-600"><i data-lucide="message-circle" class="w-4 h-4"></i> 12 respuestas</button>
+                        <button class="flex items-center gap-1 hover:text-red-500"><i data-lucide="heart" class="w-4 h-4"></i> 45 likes</button>
+                    </div>
+                </div>
+
+                <!-- Post 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold">C</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Carlos D.</h4>
+                                <span class="text-xs text-gray-500">Ayer • Medicina</span>
+                            </div>
+                        </div>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">Voluntariado</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Tengo dos horas libres el jueves por la mañana. Si alguien necesita apoyo para desplazarse entre campus, cuenten conmigo.
+                    </p>
+                    <div class="flex items-center justify-between text-gray-400 text-sm border-t pt-4">
+                        <button class="flex items-center gap-1 hover:text-yellow-600"><i data-lucide="message-circle" class="w-4 h-4"></i> Contactar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre el Proyecto (Texto del documento) -->
+    <section id="proyecto" class="py-16 bg-white border-t border-gray-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-8">¿Por qué nace Conexión UPAO?</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 text-left">
+                <div>
+                    <h3 class="font-bold text-xl mb-3 flex items-center gap-2">
+                        <i data-lucide="target" class="text-yellow-600"></i> Misión
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        El proyecto busca promover la participación activa y mejorar la calidad de vida de estudiantes con discapacidad física en UPAO. A través de la tecnología, creamos un canal directo para la autogestión de información crítica de accesibilidad.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-xl mb-3 flex items-center gap-2">
+                        <i data-lucide="book-open" class="text-yellow-600"></i> Fundamento Ético
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Basado en la responsabilidad social y la democracia, creemos que la universidad debe garantizar igualdad de oportunidades (Constitución, Art. 7 y 16) y eliminar barreras físicas para una verdadera inclusión educativa.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-auto py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <span class="font-bold text-xl flex items-center gap-2 mb-4">
+                    <i data-lucide="accessibility" class="text-yellow-500"></i> Conexión UPAO
+                </span>
+                <p class="text-gray-400 text-sm">
+                    Proyecto ciudadano desarrollado para el curso de Ética.<br>
+                    Grupo 3 - UPAO Filial Piura.
+                </p>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-4 text-gray-200">Enlaces rápidos</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="#" class="hover:text-yellow-500 transition">Mapa del campus</a></li>
+                    <li><a href="#" class="hover:text-yellow-500 transition">Reportar barrera</a></li>
+                    <li><a href="#" class="hover:text-yellow-500 transition">Voluntariado</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-semibold mb-4 text-gray-200">Contacto</h4>
+                <div class="flex items-center gap-2 text-sm text-gray-400 mb-2">
+                    <i data-lucide="mail" class="w-4 h-4"></i> contacto@conexionupao.edu.pe
+                </div>
+                <div class="mt-4 flex gap-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i data-lucide="facebook"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i data-lucide="instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i data-lucide="twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-8 pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
+            &copy; 2025 Conexión UPAO. Todos los derechos reservados. Prototipo académico.
+        </div>
+    </footer>
+
+    <!-- Script para inicializar iconos -->
+    <script>
+        lucide.createIcons();
+        
+        // Simulación simple de interactividad para el prototipo
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Prototipo Conexión UPAO cargado correctamente");
+            
+            // Aquí se podría agregar lógica real de filtrado de mapa en el futuro
+        });
+    </script>
+</body>
+</html>
